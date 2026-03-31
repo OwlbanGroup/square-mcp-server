@@ -1,5 +1,5 @@
 /**
- * Shared configuration for Square API services
+ * Shared configuration for Square API services and Blackbox AI integration
  */
 import { Response } from 'node-fetch';
 import { setBaseUrl } from './server.js';
@@ -13,6 +13,15 @@ export const baseUrl = setBaseUrl()
  * Square API version to use
  */
 export const apiVersion = process.env.SQUARE_VERSION || '2025-04-16';
+
+/**
+ * Blackbox AI configuration
+ */
+export const blackboxConfig = {
+  apiKey: process.env.BLACKBOX_API_KEY || '',
+  baseUrl: process.env.BLACKBOX_API_BASE_URL || 'https://api.blackbox.ai',
+  isConfigured: !!process.env.BLACKBOX_API_KEY,
+};
 
 /**
  * Standard request headers for Square API
